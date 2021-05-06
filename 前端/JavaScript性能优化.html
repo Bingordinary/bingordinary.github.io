@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JavaScript性能优化</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.d7966440.css" as="style"><link rel="preload" href="/assets/js/app.5d177364.js" as="script"><link rel="preload" href="/assets/js/7.65eecb72.js" as="script"><link rel="preload" href="/assets/js/2.aee3cbc0.js" as="script"><link rel="preload" href="/assets/js/23.d79f6c2a.js" as="script"><link rel="prefetch" href="/assets/js/1.ffc17af2.js"><link rel="prefetch" href="/assets/js/10.e40fa205.js"><link rel="prefetch" href="/assets/js/11.998b45cb.js"><link rel="prefetch" href="/assets/js/12.a6644bfd.js"><link rel="prefetch" href="/assets/js/13.aa48ab66.js"><link rel="prefetch" href="/assets/js/14.10728167.js"><link rel="prefetch" href="/assets/js/15.eb51acf3.js"><link rel="prefetch" href="/assets/js/16.89f0606c.js"><link rel="prefetch" href="/assets/js/17.6b9e5670.js"><link rel="prefetch" href="/assets/js/18.0f9d8e12.js"><link rel="prefetch" href="/assets/js/19.73f670cd.js"><link rel="prefetch" href="/assets/js/20.80c71d34.js"><link rel="prefetch" href="/assets/js/21.ce461a5d.js"><link rel="prefetch" href="/assets/js/22.dd95377b.js"><link rel="prefetch" href="/assets/js/24.02efca87.js"><link rel="prefetch" href="/assets/js/25.a9576179.js"><link rel="prefetch" href="/assets/js/26.42612b9c.js"><link rel="prefetch" href="/assets/js/27.4c147396.js"><link rel="prefetch" href="/assets/js/28.e551b06d.js"><link rel="prefetch" href="/assets/js/29.61cdd6e0.js"><link rel="prefetch" href="/assets/js/30.900ceea0.js"><link rel="prefetch" href="/assets/js/31.762721a1.js"><link rel="prefetch" href="/assets/js/32.ae49dc52.js"><link rel="prefetch" href="/assets/js/33.3de563d4.js"><link rel="prefetch" href="/assets/js/34.4f711dd1.js"><link rel="prefetch" href="/assets/js/35.8e5f4086.js"><link rel="prefetch" href="/assets/js/36.2ecb0f42.js"><link rel="prefetch" href="/assets/js/37.25ec0333.js"><link rel="prefetch" href="/assets/js/38.82d1b223.js"><link rel="prefetch" href="/assets/js/39.41ef87dd.js"><link rel="prefetch" href="/assets/js/4.6cc43166.js"><link rel="prefetch" href="/assets/js/40.5fac40cb.js"><link rel="prefetch" href="/assets/js/41.d88af15b.js"><link rel="prefetch" href="/assets/js/5.0398e8cf.js"><link rel="prefetch" href="/assets/js/6.ad5382fd.js"><link rel="prefetch" href="/assets/js/8.27af0ed3.js"><link rel="prefetch" href="/assets/js/9.0a374934.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d7966440.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1c7ddcd9><div class="page-container" data-v-3a89ef20 data-v-1c7ddcd9><div class="header-container" data-v-7c3c8721 data-v-3a89ef20><div class="header-body" data-v-7c3c8721><div class="logoContainer" data-v-7c3c8721><a href="/" data-v-7c3c8721><img src="/image/logo.png" alt="logo" class="logo" data-v-7c3c8721></a></div> <div class="navigation" data-v-7c3c8721><div aria-label="Breadcrumb" role="navigation" class="el-breadcrumb" data-v-7c3c8721><span class="el-breadcrumb__item" data-v-7c3c8721><span role="link" class="el-breadcrumb__inner"><a href="/" data-v-7c3c8721>首页</a></span><span role="presentation" class="el-breadcrumb__separator"></span></span><span class="el-breadcrumb__item" data-v-7c3c8721><span role="link" class="el-breadcrumb__inner"><a href="/ABOUT%20ME.html" data-v-7c3c8721>ABOUT ME</a></span><span role="presentation" class="el-breadcrumb__separator"></span></span><span class="el-breadcrumb__item" data-v-7c3c8721><span role="link" class="el-breadcrumb__inner"><a href="/Linux/" data-v-7c3c8721>Linux</a></span><span role="presentation" class="el-breadcrumb__separator"></span></span><span class="el-breadcrumb__item" data-v-7c3c8721><span role="link" class="el-breadcrumb__inner"><a href="/前端/" data-v-7c3c8721>前端</a></span><span role="presentation" class="el-breadcrumb__separator"></span></span> <span class="el-breadcrumb__item slogan" data-v-7c3c8721><span role="link" class="el-breadcrumb__inner">to be continued...</span><span role="presentation" class="el-breadcrumb__separator"></span></span></div></div></div></div> <div class="body" data-v-3a89ef20><div class="content" data-v-3a89ef20><div class="article" data-v-3a89ef20><div class="content__default" data-v-3a89ef20><h1 id="javascript性能优化"><a href="#javascript性能优化" class="header-anchor">#</a> JavaScript性能优化</h1> <h2 id="内存管理"><a href="#内存管理" class="header-anchor">#</a> 内存管理</h2> <ul><li>内存：有可读写单元组成，表示一片可操作空间</li> <li>管理：人为的去操作一片空间的申请、使用和释放</li> <li>内存管理：开发者主动申请空间、使用空间、释放空间</li> <li>管理流程：申请-使用-释放 JavaScript中的内存管理</li> <li>申请内存空间</li> <li>使用内存空间</li> <li>释放内存空间</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 申请</span>
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token comment">// 使用</span>
+obj<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token number">100</span>
+<span class="token comment">// 释放</span>
+obj <span class="token operator">=</span> <span class="token keyword">null</span>
+</code></pre></div><h2 id="垃圾回收"><a href="#垃圾回收" class="header-anchor">#</a> 垃圾回收</h2> <ul><li>JavaScript中的内存管理是自动的</li> <li>对象不再被引用就是垃圾</li> <li>对象不能从根上访问到时是垃圾 JavaScript中的可达对象</li> <li>可以访问到的对象就是可达对象（引用、作用域链）</li> <li>可达的标准就是从根出发是否能被找到</li> <li>JavaScript中的根就可以理解为全局变量对象</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'you'</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> ali <span class="token operator">=</span> obj
+obj <span class="token operator">=</span> <span class="token keyword">null</span>
+</code></pre></div><p>上面代码中因为ali引用了obj，所以obj依然是可达的</p> <h2 id="gc算法"><a href="#gc算法" class="header-anchor">#</a> GC算法</h2> <ul><li>GC就是垃圾回收机制的简写</li> <li>GC可以找到内存中的垃圾、并释放和回收空间</li></ul> <h3 id="gc垃圾是什么"><a href="#gc垃圾是什么" class="header-anchor">#</a> GC垃圾是什么</h3> <ul><li>程序中不再需要使用到的对象</li> <li>程序中不能再访问到的对象</li></ul> <h3 id="gc是什么"><a href="#gc是什么" class="header-anchor">#</a> GC是什么</h3> <ul><li>GC就是一种机制，垃圾回收器完成具体的工作</li> <li>工作的内容就是查找垃圾释放空间、回收空间</li> <li>算法就是工作时查找和回收所遵循的规则</li></ul> <h3 id="常见gc算法"><a href="#常见gc算法" class="header-anchor">#</a> 常见GC算法</h3> <h3 id="引用计数"><a href="#引用计数" class="header-anchor">#</a> 引用计数</h3> <ul><li>核心思想：设置引用数，判断当前引用数是否为0</li> <li>引用计数器</li> <li>引用关系改变时修改引用数字</li> <li>引用数字为0时立即回收</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> user1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    age<span class="token operator">:</span> <span class="token number">11</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> user2 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    age<span class="token operator">:</span> <span class="token number">21</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> user3 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    age<span class="token operator">:</span> <span class="token number">31</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> nameList <span class="token operator">=</span> <span class="token punctuation">[</span>user1<span class="token punctuation">.</span>age<span class="token punctuation">,</span> user2<span class="token punctuation">.</span>age<span class="token punctuation">,</span> user3<span class="token punctuation">.</span>age<span class="token punctuation">]</span>
+
+<span class="token comment">// 函数内部执行完毕 计数为0</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> num1 <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">const</span> num2 <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token punctuation">}</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p>引用计数的优点
+<em>发现垃圾时立即回收</em>  最大限度减少程序暂停 缺点  <em>无法回收循环引用的对象</em>  时间开销大、资源消耗较大</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 循环引用  obj1和obj2无法被回收</span>
+    <span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">const</span> obj2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    obj1<span class="token punctuation">.</span>obj <span class="token operator">=</span> obj2
+    obj2<span class="token punctuation">.</span>obj <span class="token operator">=</span> obj1
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="标记清除"><a href="#标记清除" class="header-anchor">#</a> 标记清除</h3> <ul><li>标记：遍历所有对象找标记活动对象</li> <li>清除：遍历所有对象清除没有标记的对象
+优点</li> <li>可以解决对象循环引用无法回收循环问题</li></ul> <p>缺点
+<em>空间碎片化</em>  不会立即回收垃圾对象</p> <h3 id="标记整理"><a href="#标记整理" class="header-anchor">#</a> 标记整理</h3> <ul><li>标记整理就是标记清除的增强（标记和清除一致）</li> <li>清除阶段会先执行整理，移动对象位置，减少空间碎片化</li></ul> <p>缺点 * 不会立即回收垃圾对象</p> <h2 id="v8引擎"><a href="#v8引擎" class="header-anchor">#</a> V8引擎</h2> <ul><li>V8是一款主流的JavaScript执行引擎</li> <li>采用及时编译</li> <li>内存上限（64 1.5G、32位系统 800M）</li></ul> <h3 id="v8垃圾回收策略"><a href="#v8垃圾回收策略" class="header-anchor">#</a> V8垃圾回收策略</h3> <ul><li>采用分代回收</li> <li>内存分为新生代、老生代 V8中常见的GC算法</li> <li>分代回收</li> <li>空间复制</li> <li>标记清除</li> <li>标记整理</li> <li>标记增量</li></ul> <h3 id="v8如何回收新生代对象"><a href="#v8如何回收新生代对象" class="header-anchor">#</a> V8如何回收新生代对象</h3> <h3 id="v8内存分配"><a href="#v8内存分配" class="header-anchor">#</a> V8内存分配</h3> <ul><li>V8内存空间一分为二</li> <li>小空间用于存储新生代对象（32M|16M）</li> <li>新生代指的是存活时间较短的对象</li></ul> <h3 id="新生代对象的回收"><a href="#新生代对象的回收" class="header-anchor">#</a> 新生代对象的回收</h3> <ul><li>回收过程采用复制算法+标记整理</li> <li>新生代内存区分为二个等大小空间</li> <li>使用空间为From,空闲空间为To</li> <li>活动对象存储于From空间</li> <li>标记整理后将活动对象拷贝至To</li> <li>From 与To交换空间完成释放</li></ul> <h3 id="回收细节说明"><a href="#回收细节说明" class="header-anchor">#</a> 回收细节说明</h3> <ul><li>拷贝过程中可能出现晋升</li> <li>晋升就是将新生代对象移动至老生代</li> <li>一轮GC还存活的新生代需要晋升</li> <li>To空间的使用率超过25%</li></ul> <h3 id="v8如何回收老生代对象"><a href="#v8如何回收老生代对象" class="header-anchor">#</a> V8如何回收老生代对象</h3> <ul><li>老生代对象存放在右侧老生代区</li> <li>64位操作系统1.4G,32位操作系统700M</li> <li>老生代对象就是指存活时间较长的对象</li></ul> <h3 id="老生代对象的回收"><a href="#老生代对象的回收" class="header-anchor">#</a> 老生代对象的回收</h3> <ul><li>主要采用标记清除、标记整理、增量标记</li> <li>首先使用标记清除完成垃圾空间的回收</li> <li>采用标记整理进行空间优化（晋升出现空间不足就是使用标记整理）</li> <li>采用增量标记进行效率优化 新生代对比</li> <li>新生代区域垃圾回收使用空间换时间</li> <li>老生代区域垃圾回收不适合复制算法（老生代存储对象比较多）</li></ul> <p>标记增量</p> <h2 id="performance工具"><a href="#performance工具" class="header-anchor">#</a> Performance工具</h2> <ul><li>GC的目的是为了实现内存空间的良性循环</li> <li>良性循环的基石是合理使用</li> <li>时刻关注才能确定是否合理</li> <li>Performance提供多种监控方式 使用步骤</li> <li>打开浏览器输入目标网址</li> <li>进入开发人员工具面板，选择性能</li> <li>开启录制功能，访问具体界面</li> <li>执行用户行为，一段时间后停止录制</li> <li>分析界面中记录的内存信息</li></ul> <h3 id="内存问题的外在表现"><a href="#内存问题的外在表现" class="header-anchor">#</a> 内存问题的外在表现</h3> <ul><li>页面出现延迟加载或经常性暂停</li> <li>页面持续性出现糟糕的性能</li> <li>页面的性能随时间延长越来越差</li></ul> <h3 id="监控内存的几种方式"><a href="#监控内存的几种方式" class="header-anchor">#</a> 监控内存的几种方式</h3> <p>界定内存问题的标准  <em>内存泄漏：内存使用持续升高</em>  内存膨胀：在多数设备上都存在问题 * 频繁垃圾回收：通过内存变化图分析</p> <p>监控内存的几种方式  <em>浏览器任务浏览器</em>  Timeline时序图记录  <em>堆块照查找分离DOM</em>  判断是否存在频繁的垃圾回收</p> <h3 id="任务管理器监控内存"><a href="#任务管理器监控内存" class="header-anchor">#</a> 任务管理器监控内存</h3> <p><code>shift</code>+<code>esc</code>打开浏览器任务管理器</p> <h3 id="timeline记录内存"><a href="#timeline记录内存" class="header-anchor">#</a> Timeline记录内存</h3> <p>打开浏览器开发工具-&gt;性能-&gt;录制-&gt;页面操作-&gt;stop-&gt;勾住内存</p> <h3 id="堆快照查找分离dom"><a href="#堆快照查找分离dom" class="header-anchor">#</a> 堆快照查找分离DOM</h3> <p>打开浏览器开发工具-&gt;内存-&gt;堆快照获取快照-&gt;搜索deta 什么是分离DOM  <em>页面中存活的元素</em>  垃圾对象是DOM节点 * 分离状态的DOM节点</p> <h3 id="判断是否存在频繁gc"><a href="#判断是否存在频繁gc" class="header-anchor">#</a> 判断是否存在频繁GC</h3> <h3 id="为什么确定频繁垃圾回收"><a href="#为什么确定频繁垃圾回收" class="header-anchor">#</a> 为什么确定频繁垃圾回收</h3> <ul><li>GC工作时应用是停止的</li> <li>频繁且过长的GC会导致应用假死</li> <li>用户使用中感知应用卡顿</li></ul> <h3 id="确定频繁的垃圾回收"><a href="#确定频繁的垃圾回收" class="header-anchor">#</a> 确定频繁的垃圾回收</h3> <ul><li>Timeline中频繁升降</li> <li>任务管理器中数据频繁的增加减少</li></ul> <h2 id="代码优化"><a href="#代码优化" class="header-anchor">#</a> 代码优化</h2> <p>如何精准测量JavaScript性能  <em>本质上就是采用大量的执行样本进行数学统计和分析</em>  使用基于Benchmark.js的https://jsperf.com完成</p> <p>jsperf使用流程  <em>使用GitHub账号登录</em>  填写个人信息(非必须)  <em>填写详细的测试用例信息( title、slug )</em>  填写准备代码(DOM操作时经 常使用)  <em>填写必要有setup与teardown代码</em>  填写测试代码片段</p> <h3 id="慎用全局变量"><a href="#慎用全局变量" class="header-anchor">#</a> 慎用全局变量</h3> <ul><li>全局变量定义在全局执行上下文，是所有作用域链的顶端</li> <li>全局执行上下文一直存在于上下文执行栈，直到程序退出</li> <li>如果某个局部作用域出现了同名变量则会遮蔽或污染全局</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 测试代码1</span>
+<span class="token keyword">var</span> i<span class="token punctuation">,</span> str <span class="token operator">=</span> <span class="token string">''</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    str <span class="token operator">+=</span> i
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 测试代码2</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token string">''</span>
+    str <span class="token operator">+=</span> i
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="缓存全局变量"><a href="#缓存全局变量" class="header-anchor">#</a> 缓存全局变量</h3> <p>将使用中无法避免的全局变量缓存到局部</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 测试代码1</span>
+   <span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> d <span class="token operator">=</span> document
+        <span class="token keyword">const</span> b1 <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'b1'</span><span class="token punctuation">)</span>
+        <span class="token keyword">const</span> b2 <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'b2'</span><span class="token punctuation">)</span>
+        <span class="token keyword">const</span> b3 <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'b3'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 测试代码2</span>
+    <span class="token keyword">function</span> <span class="token function">fn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> b1 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'b1'</span><span class="token punctuation">)</span>
+        <span class="token keyword">const</span> b2 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'b2'</span><span class="token punctuation">)</span>
+        <span class="token keyword">const</span> b3 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'b3'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><p>代码1比代码2效率高</p> <h3 id="通过原型对象添加方法"><a href="#通过原型对象添加方法" class="header-anchor">#</a> 通过原型对象添加方法</h3> <h3 id="避开闭包陷阱"><a href="#避开闭包陷阱" class="header-anchor">#</a> 避开闭包陷阱</h3> <p>关于闭包  <em>闭包是一种强大的语法</em>  闭包使用不当很容易出现内存泄漏 * 不要为了闭包而闭包</p> <h3 id="避免属性访问方法使用"><a href="#避免属性访问方法使用" class="header-anchor">#</a> 避免属性访问方法使用</h3> <p>JavaScript中的面向对象  <em>js不需要属性的访问方法，所有属性都是外部可见的</em>  使用属性访问的方法只会增加一层重定义，没有访问的控制力</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 测试代码1</span>
+<span class="token keyword">function</span> <span class="token function">Person1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'person'</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">getName</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> person1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> name1 <span class="token operator">=</span> person1<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 测试代码2</span>
+<span class="token keyword">function</span> <span class="token function">Person2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'person'</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> person2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> name2 <span class="token operator">=</span> person2<span class="token punctuation">.</span>name
+</code></pre></div><p>通过测试代码2比代码2好</p> <h3 id="for循环优化"><a href="#for循环优化" class="header-anchor">#</a> For循环优化</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">98</span><span class="token punctuation">]</span>
+
+<span class="token comment">// 测试代码1</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 测试代码2</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>通过测试代码2比代码2好</p> <h3 id="采用最优循环方式"><a href="#采用最优循环方式" class="header-anchor">#</a> 采用最优循环方式</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 测试代码1</span>
+arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 测试代码2</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 测试代码3</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token keyword">in</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>通过测试代码1&gt;测试代码2&gt;测试代码3,forEach循环比for,for...in循环好</p> <h3 id="节点添加优化"><a href="#节点添加优化" class="header-anchor">#</a> 节点添加优化</h3> <p>节点添加操作必然会有回流和重绘</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 测试代码1</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> op <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span>
+        op<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> i
+        document<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>op<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 测试代码2</span>
+    <span class="token keyword">const</span> fragEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createDocumentFragment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> op <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span>
+        op<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> i
+        fragEl<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>op<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    document<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>fragEl<span class="token punctuation">)</span>
+</code></pre></div><p>测试代码2优于测试代码1  ### 克隆优化节点</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> oldEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span>
+    <span class="token comment">// 测试代码1</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> op <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span>
+        op<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> i
+        document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>op<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 测试代码2</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> op <span class="token operator">=</span> oldEl<span class="token punctuation">.</span><span class="token function">cloneNode</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+        op<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> i
+        document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>op<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><p>测试代码2优于测试代码1</p> <h3 id="直接量替换new-object"><a href="#直接量替换new-object" class="header-anchor">#</a> 直接量替换new Object</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 测试代码1</span>
+<span class="token keyword">var</span> a1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+
+<span class="token comment">// 测试代码2</span>
+<span class="token keyword">var</span> a1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+a1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+a1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
+a1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span>
+</code></pre></div><p>测试代码1优于测试代码2</p></div></div> <div class="side" data-v-3a89ef20><div data-v-3a89ef20><div style="margin-bottom: 50px" data-v-3a89ef20><h3 data-v-3a89ef20>关键词</h3> <div class="tagContainer" data-v-3a89ef20><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#内存管理" data-v-3a89ef20>
+                  内存管理
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#垃圾回收" data-v-3a89ef20>
+                  垃圾回收
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#gc算法" data-v-3a89ef20>
+                  GC算法
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#gc垃圾是什么" data-v-3a89ef20>
+                  GC垃圾是什么
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#gc是什么" data-v-3a89ef20>
+                  GC是什么
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#常见gc算法" data-v-3a89ef20>
+                  常见GC算法
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#引用计数" data-v-3a89ef20>
+                  引用计数
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#标记清除" data-v-3a89ef20>
+                  标记清除
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#标记整理" data-v-3a89ef20>
+                  标记整理
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#v8引擎" data-v-3a89ef20>
+                  V8引擎
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#v8垃圾回收策略" data-v-3a89ef20>
+                  V8垃圾回收策略
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#v8如何回收新生代对象" data-v-3a89ef20>
+                  V8如何回收新生代对象
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#v8内存分配" data-v-3a89ef20>
+                  V8内存分配
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#新生代对象的回收" data-v-3a89ef20>
+                  新生代对象的回收
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#回收细节说明" data-v-3a89ef20>
+                  回收细节说明
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#v8如何回收老生代对象" data-v-3a89ef20>
+                  V8如何回收老生代对象
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#老生代对象的回收" data-v-3a89ef20>
+                  老生代对象的回收
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#performance工具" data-v-3a89ef20>
+                  Performance工具
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#内存问题的外在表现" data-v-3a89ef20>
+                  内存问题的外在表现
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#监控内存的几种方式" data-v-3a89ef20>
+                  监控内存的几种方式
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#任务管理器监控内存" data-v-3a89ef20>
+                  任务管理器监控内存
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#timeline记录内存" data-v-3a89ef20>
+                  Timeline记录内存
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#堆快照查找分离dom" data-v-3a89ef20>
+                  堆快照查找分离DOM
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#判断是否存在频繁gc" data-v-3a89ef20>
+                  判断是否存在频繁GC
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#为什么确定频繁垃圾回收" data-v-3a89ef20>
+                  为什么确定频繁垃圾回收
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#确定频繁的垃圾回收" data-v-3a89ef20>
+                  确定频繁的垃圾回收
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#代码优化" data-v-3a89ef20>
+                  代码优化
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#慎用全局变量" data-v-3a89ef20>
+                  慎用全局变量
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#缓存全局变量" data-v-3a89ef20>
+                  缓存全局变量
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#通过原型对象添加方法" data-v-3a89ef20>
+                  通过原型对象添加方法
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#避开闭包陷阱" data-v-3a89ef20>
+                  避开闭包陷阱
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#避免属性访问方法使用" data-v-3a89ef20>
+                  避免属性访问方法使用
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#for循环优化" data-v-3a89ef20>
+                  For循环优化
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#采用最优循环方式" data-v-3a89ef20>
+                  采用最优循环方式
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#节点添加优化" data-v-3a89ef20>
+                  节点添加优化
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#直接量替换new-object" data-v-3a89ef20>
+                  直接量替换new Object
+                </a></span></div></div></div> <div data-v-3a89ef20><h3 data-v-3a89ef20>相关文章</h3> <div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/ECMAScript%E6%96%B0%E7%89%B9%E6%80%A7.html" data-v-3a89ef20>
+              ECMAScript新特性
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html" data-v-3a89ef20>
+              JavaScript异步编程
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/JavaScript%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html" data-v-3a89ef20>
+              JavaScript性能优化
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/Rollup%E5%92%8Cparcel.html" data-v-3a89ef20>
+              Rollup和parcel
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/TypeScript.html" data-v-3a89ef20>
+              TypeScript
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/Virtual%20DOM%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86.html" data-v-3a89ef20>
+              Virtual DOM的实现原理
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/Vue.js%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE%E5%92%8C%E6%A8%A1%E6%8B%9FVue%20Router%E7%9A%84%E5%AE%9E%E7%8E%B0.html" data-v-3a89ef20>
+              Vue.js基础回顾和模拟Vue Router的实现
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/Vue%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90-%E5%BC%80%E5%A7%8B%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96+%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97.html" data-v-3a89ef20>
+              Vue源码分析-开始和初始化+学习心得
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/webpack%E6%89%93%E5%8C%85.html" data-v-3a89ef20>
+              webpack打包
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E8%87%AA%E5%8A%A8%E5%8C%96.html" data-v-3a89ef20>
+              前端工程自动化
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96%E6%A6%82%E8%BF%B0%E4%B8%8E%E8%84%9A%E6%89%8B%E6%9E%B6%E5%B7%A5%E5%85%B7.html" data-v-3a89ef20>
+              工程化概述与脚手架工具
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E6%89%8B%E5%86%99Promise%E6%BA%90%E7%A0%81.html" data-v-3a89ef20>
+              手写Promise源码
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E6%A8%A1%E5%9D%97%E5%8C%96%E5%BC%80%E5%8F%91.html" data-v-3a89ef20>
+              模块化开发
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%B7%A5%E5%85%B7.html" data-v-3a89ef20>
+              脚手架工具
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E6%A8%A1%E6%8B%9FVue.js%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86.html" data-v-3a89ef20>
+              模拟Vue.js响应式原理
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA.html" data-v-3a89ef20>
+              自动化构建
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E8%A7%84%E8%8C%83%E5%8C%96%E6%A0%87%E5%87%86.html" data-v-3a89ef20>
+              规范化标准
+            </a></div></div></div></div></div> <div class="footer-container" data-v-31e71e00 data-v-3a89ef20>
+powered with ❤ by Bingordinary
+</div></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5d177364.js" defer></script><script src="/assets/js/7.65eecb72.js" defer></script><script src="/assets/js/2.aee3cbc0.js" defer></script><script src="/assets/js/23.d79f6c2a.js" defer></script>
+  </body>
+</html>

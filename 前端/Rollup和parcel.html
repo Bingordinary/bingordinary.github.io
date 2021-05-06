@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Rollup和parcel</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.d7966440.css" as="style"><link rel="preload" href="/assets/js/app.5d177364.js" as="script"><link rel="preload" href="/assets/js/7.65eecb72.js" as="script"><link rel="preload" href="/assets/js/2.aee3cbc0.js" as="script"><link rel="preload" href="/assets/js/27.4c147396.js" as="script"><link rel="prefetch" href="/assets/js/1.ffc17af2.js"><link rel="prefetch" href="/assets/js/10.e40fa205.js"><link rel="prefetch" href="/assets/js/11.998b45cb.js"><link rel="prefetch" href="/assets/js/12.a6644bfd.js"><link rel="prefetch" href="/assets/js/13.aa48ab66.js"><link rel="prefetch" href="/assets/js/14.10728167.js"><link rel="prefetch" href="/assets/js/15.eb51acf3.js"><link rel="prefetch" href="/assets/js/16.89f0606c.js"><link rel="prefetch" href="/assets/js/17.6b9e5670.js"><link rel="prefetch" href="/assets/js/18.0f9d8e12.js"><link rel="prefetch" href="/assets/js/19.73f670cd.js"><link rel="prefetch" href="/assets/js/20.80c71d34.js"><link rel="prefetch" href="/assets/js/21.ce461a5d.js"><link rel="prefetch" href="/assets/js/22.dd95377b.js"><link rel="prefetch" href="/assets/js/23.d79f6c2a.js"><link rel="prefetch" href="/assets/js/24.02efca87.js"><link rel="prefetch" href="/assets/js/25.a9576179.js"><link rel="prefetch" href="/assets/js/26.42612b9c.js"><link rel="prefetch" href="/assets/js/28.e551b06d.js"><link rel="prefetch" href="/assets/js/29.61cdd6e0.js"><link rel="prefetch" href="/assets/js/30.900ceea0.js"><link rel="prefetch" href="/assets/js/31.762721a1.js"><link rel="prefetch" href="/assets/js/32.ae49dc52.js"><link rel="prefetch" href="/assets/js/33.3de563d4.js"><link rel="prefetch" href="/assets/js/34.4f711dd1.js"><link rel="prefetch" href="/assets/js/35.8e5f4086.js"><link rel="prefetch" href="/assets/js/36.2ecb0f42.js"><link rel="prefetch" href="/assets/js/37.25ec0333.js"><link rel="prefetch" href="/assets/js/38.82d1b223.js"><link rel="prefetch" href="/assets/js/39.41ef87dd.js"><link rel="prefetch" href="/assets/js/4.6cc43166.js"><link rel="prefetch" href="/assets/js/40.5fac40cb.js"><link rel="prefetch" href="/assets/js/41.d88af15b.js"><link rel="prefetch" href="/assets/js/5.0398e8cf.js"><link rel="prefetch" href="/assets/js/6.ad5382fd.js"><link rel="prefetch" href="/assets/js/8.27af0ed3.js"><link rel="prefetch" href="/assets/js/9.0a374934.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d7966440.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1c7ddcd9><div class="page-container" data-v-3a89ef20 data-v-1c7ddcd9><div class="header-container" data-v-7c3c8721 data-v-3a89ef20><div class="header-body" data-v-7c3c8721><div class="logoContainer" data-v-7c3c8721><a href="/" data-v-7c3c8721><img src="/image/logo.png" alt="logo" class="logo" data-v-7c3c8721></a></div> <div class="navigation" data-v-7c3c8721><div aria-label="Breadcrumb" role="navigation" class="el-breadcrumb" data-v-7c3c8721><span class="el-breadcrumb__item" data-v-7c3c8721><span role="link" class="el-breadcrumb__inner"><a href="/" data-v-7c3c8721>首页</a></span><span role="presentation" class="el-breadcrumb__separator"></span></span><span class="el-breadcrumb__item" data-v-7c3c8721><span role="link" class="el-breadcrumb__inner"><a href="/ABOUT%20ME.html" data-v-7c3c8721>ABOUT ME</a></span><span role="presentation" class="el-breadcrumb__separator"></span></span><span class="el-breadcrumb__item" data-v-7c3c8721><span role="link" class="el-breadcrumb__inner"><a href="/Linux/" data-v-7c3c8721>Linux</a></span><span role="presentation" class="el-breadcrumb__separator"></span></span><span class="el-breadcrumb__item" data-v-7c3c8721><span role="link" class="el-breadcrumb__inner"><a href="/前端/" data-v-7c3c8721>前端</a></span><span role="presentation" class="el-breadcrumb__separator"></span></span> <span class="el-breadcrumb__item slogan" data-v-7c3c8721><span role="link" class="el-breadcrumb__inner">to be continued...</span><span role="presentation" class="el-breadcrumb__separator"></span></span></div></div></div></div> <div class="body" data-v-3a89ef20><div class="content" data-v-3a89ef20><div class="article" data-v-3a89ef20><div class="content__default" data-v-3a89ef20><h1 id="rollup和parcel"><a href="#rollup和parcel" class="header-anchor">#</a> Rollup和parcel</h1> <h2 id="rollup"><a href="#rollup" class="header-anchor">#</a> Rollup</h2> <p><a href="https://www.rollupjs.com/" target="_blank" rel="noopener noreferrer">Rollup<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>是一个 JavaScript 模块打包器，可以将小块代码编译成大块复杂的代码，例如 library 或应用程序</p> <p>Rollup与webpack作用类似，但Rollup更为小巧，仅仅是一款ESM打包器，提供一个充分利用ESM各项特性的高效打包器</p> <h2 id="rollup快速上手"><a href="#rollup快速上手" class="header-anchor">#</a> Rollup快速上手</h2> <p>create.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">createInput</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> input <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'input'</span><span class="token punctuation">)</span>
+    input<span class="token punctuation">.</span>placeholder <span class="token operator">=</span> <span class="token string">&quot;请输入内容&quot;</span>
+    <span class="token keyword">return</span> input
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">createHead</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> header <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span>
+    header<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'header'</span>
+    <span class="token keyword">return</span> header
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">createButton</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> button <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span>
+    button<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'按钮'</span>
+    <span class="token keyword">return</span> button
+<span class="token punctuation">}</span>
+</code></pre></div><p>index.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span>
+    createHead
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./create'</span>
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token function">createHead</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><p>生产一个浏览器环境的文件</p> <div class="language-text extra-class"><pre class="language-text"><code>rollup src/index.js --format iife --file dist/bundle.js
+</code></pre></div><p>编译后的代码</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token string">'use strict'</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> <span class="token function-variable function">createHead</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> header <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        header<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'header'</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> header
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token function">createHead</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>Rollup打包结果相比webpack没有多余的代码，且自动去除了无用的代码</p> <h2 id="使用配置文件"><a href="#使用配置文件" class="header-anchor">#</a> 使用配置文件</h2> <p>在项目文件下新建rollup.config.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    input<span class="token operator">:</span><span class="token string">'src/index.js'</span><span class="token punctuation">,</span>
+    output<span class="token operator">:</span><span class="token punctuation">{</span>
+        file<span class="token operator">:</span><span class="token string">'dist/bundle.js'</span><span class="token punctuation">,</span>
+        format<span class="token operator">:</span><span class="token string">'iife'</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+yarn rollup <span class="token operator">--</span>config
+</code></pre></div><h2 id="使用插件"><a href="#使用插件" class="header-anchor">#</a> 使用插件</h2> <p>插件是Rollup唯一的拓展方式</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> json <span class="token keyword">from</span> <span class="token string">'rollup-plugin-json'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    input<span class="token operator">:</span> <span class="token string">'src/index.js'</span><span class="token punctuation">,</span>
+    output<span class="token operator">:</span> <span class="token punctuation">{</span>
+        file<span class="token operator">:</span> <span class="token string">'dist/bundle.js'</span><span class="token punctuation">,</span>
+        format<span class="token operator">:</span> <span class="token string">'iife'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>编译后的文件</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token string">'use strict'</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> <span class="token function-variable function">createHead</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> header <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        header<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'header'</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> header
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">&quot;rollup&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> version <span class="token operator">=</span> <span class="token string">&quot;1.0.0&quot;</span><span class="token punctuation">;</span>
+
+    document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token function">createHead</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> version<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="加载npm模块"><a href="#加载npm模块" class="header-anchor">#</a> 加载NPM模块</h2> <p>Rollup默认只能按文件路径方式加载本地模块</p> <p>使用rollup-plugin-node-resolve加载npm模块</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> json <span class="token keyword">from</span> <span class="token string">'rollup-plugin-json'</span>
+<span class="token keyword">import</span> resolve <span class="token keyword">from</span> <span class="token string">'rollup-plugin-node-resolve'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    input<span class="token operator">:</span> <span class="token string">'src/index.js'</span><span class="token punctuation">,</span>
+    output<span class="token operator">:</span> <span class="token punctuation">{</span>
+        file<span class="token operator">:</span> <span class="token string">'dist/bundle.js'</span><span class="token punctuation">,</span>
+        format<span class="token operator">:</span> <span class="token string">'iife'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="rollup加载commonjs模块"><a href="#rollup加载commonjs模块" class="header-anchor">#</a> Rollup加载CommonJS模块</h2> <p>一些库导出成你可以正常导入的 ES6 模块 - the-answer 就是一个这样的模块。 但是目前， npm 中的大多数包都是以 CommonJS 模块的形式出现的。  在它们更改之前，我们需要将 CommonJS 模块转换为 ES2015 供 Rollup 处理。</p> <p>如果想要CommonJS,可以使用rollup-plugin-commonjs这个插件，用来将 CommonJS 转换成 ES2015 模块</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> json <span class="token keyword">from</span> <span class="token string">'rollup-plugin-json'</span>
+<span class="token keyword">import</span> resolve <span class="token keyword">from</span> <span class="token string">'rollup-plugin-node-resolve'</span>
+<span class="token keyword">import</span> commonjs <span class="token keyword">from</span> <span class="token string">'rollup-plugin-commonjs'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    input<span class="token operator">:</span> <span class="token string">'src/index.js'</span><span class="token punctuation">,</span>
+    output<span class="token operator">:</span> <span class="token punctuation">{</span>
+        file<span class="token operator">:</span> <span class="token string">'dist/bundle.js'</span><span class="token punctuation">,</span>
+        format<span class="token operator">:</span> <span class="token string">'iife'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">commonjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="rollup代码拆分"><a href="#rollup代码拆分" class="header-anchor">#</a> Rollup代码拆分</h2> <p>使用上面代码我们直接运行会报错<code>UMD and IIFE output formats are not supported for code-splitting builds.</code></p> <p>使用Rollup不支持UMD和IIFE,浏览器端我们可以使用AMD，当我们输出多个文件时，必须指定输出目录output.dir,而不是out.file rollup.config.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> json <span class="token keyword">from</span> <span class="token string">'rollup-plugin-json'</span>
+<span class="token keyword">import</span> resolve <span class="token keyword">from</span> <span class="token string">'rollup-plugin-node-resolve'</span>
+<span class="token keyword">import</span> commonjs <span class="token keyword">from</span> <span class="token string">'rollup-plugin-commonjs'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    input<span class="token operator">:</span> <span class="token string">'src/index.js'</span><span class="token punctuation">,</span>
+    output<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// file: 'dist/bundle.js',</span>
+        <span class="token comment">// format: 'iife'</span>
+        format<span class="token operator">:</span><span class="token string">'amd'</span><span class="token punctuation">,</span>
+        dir<span class="token operator">:</span><span class="token string">'dist'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">commonjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>入口文件</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./module-cjs'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>
+    name
+<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="rollup选用原则"><a href="#rollup选用原则" class="header-anchor">#</a> Rollup选用原则</h2> <p>Rollup的优势  <em>输出结果更加扁平</em>  自动移除未引用代码  <em>打包结果依然可读 缺点</em>  加载非ESM第三方模块比较复杂  <em>模块最终都被打包到一个函数中，无法实现HMR</em>  浏览器环境中，代码拆分功能依赖AMD库</p> <p>如果我们正在开发应用程序，可以选择webpack;如果我们正在开发一个框架或类库</p> <p>Webpack大而全，Rollup小而美Parcel</p> <p><a href="https://zh.parceljs.org/getting_started.html" target="_blank" rel="noopener noreferrer">Parcel<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 可以使用任何类型的文件作为入口，但是最好还是使用 HTML 或 JavaScript 文件</p> <p>新建一个html入口文件</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>viewport<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>width=device-width, initial-scale=1.0<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>./index.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>index.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span>
+    createHead<span class="token punctuation">,</span>
+    createInput
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./create'</span>
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token function">createHead</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token function">createInput</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>module<span class="token punctuation">.</span>hot<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    module<span class="token punctuation">.</span>hot<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hmr'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>create.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">createInput</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> input <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'input'</span><span class="token punctuation">)</span>
+    input<span class="token punctuation">.</span>placeholder <span class="token operator">=</span> <span class="token string">&quot;请输入内容 &quot;</span>
+    <span class="token keyword">return</span> input
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">createHead</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> header <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span>
+    header<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'header'</span>
+    <span class="token keyword">return</span> header
+<span class="token punctuation">}</span>
+</code></pre></div><p>开发启动</p> <div class="language-text extra-class"><pre class="language-text"><code>yarn parcel src/index.html
+</code></pre></div><p>Parcel可以自动安装依赖</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> _ <span class="token keyword">from</span> <span class="token string">'lodash-es'</span>
+</code></pre></div><p>在导入模块的过程中会自动安装依赖</p> <p>处理图片、css等文件不需要任何配置</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token string">'./style.css'</span>
+<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">&quot;./parcel-front.webp&quot;</span><span class="token operator">&gt;</span>
+</code></pre></div><p>使用动态导入会自动拆分代码</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'lodash-es'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">_</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>_<span class="token punctuation">.</span><span class="token function">camelCase</span><span class="token punctuation">(</span><span class="token string">'hello word'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>生产打包</p> <div class="language-text extra-class"><pre class="language-text"><code>yarn parcel build src/index.html
+</code></pre></div><p>Parcel的特点：完全零配置、自动安装依赖、构建速度比较快</p></div></div> <div class="side" data-v-3a89ef20><div data-v-3a89ef20><div style="margin-bottom: 50px" data-v-3a89ef20><h3 data-v-3a89ef20>关键词</h3> <div class="tagContainer" data-v-3a89ef20><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#rollup" data-v-3a89ef20>
+                  Rollup
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#rollup快速上手" data-v-3a89ef20>
+                  Rollup快速上手
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#使用配置文件" data-v-3a89ef20>
+                  使用配置文件
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#使用插件" data-v-3a89ef20>
+                  使用插件
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#加载npm模块" data-v-3a89ef20>
+                  加载NPM模块
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#rollup加载commonjs模块" data-v-3a89ef20>
+                  Rollup加载CommonJS模块
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#rollup代码拆分" data-v-3a89ef20>
+                  Rollup代码拆分
+                </a></span><span class="el-tag el-tag--info el-tag--plain" data-v-3a89ef20><a href="#rollup选用原则" data-v-3a89ef20>
+                  Rollup选用原则
+                </a></span></div></div></div> <div data-v-3a89ef20><h3 data-v-3a89ef20>相关文章</h3> <div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/ECMAScript%E6%96%B0%E7%89%B9%E6%80%A7.html" data-v-3a89ef20>
+              ECMAScript新特性
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html" data-v-3a89ef20>
+              JavaScript异步编程
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/JavaScript%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html" data-v-3a89ef20>
+              JavaScript性能优化
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/Rollup%E5%92%8Cparcel.html" data-v-3a89ef20>
+              Rollup和parcel
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/TypeScript.html" data-v-3a89ef20>
+              TypeScript
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/Virtual%20DOM%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86.html" data-v-3a89ef20>
+              Virtual DOM的实现原理
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/Vue.js%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE%E5%92%8C%E6%A8%A1%E6%8B%9FVue%20Router%E7%9A%84%E5%AE%9E%E7%8E%B0.html" data-v-3a89ef20>
+              Vue.js基础回顾和模拟Vue Router的实现
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/Vue%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90-%E5%BC%80%E5%A7%8B%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96+%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97.html" data-v-3a89ef20>
+              Vue源码分析-开始和初始化+学习心得
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/webpack%E6%89%93%E5%8C%85.html" data-v-3a89ef20>
+              webpack打包
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E8%87%AA%E5%8A%A8%E5%8C%96.html" data-v-3a89ef20>
+              前端工程自动化
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96%E6%A6%82%E8%BF%B0%E4%B8%8E%E8%84%9A%E6%89%8B%E6%9E%B6%E5%B7%A5%E5%85%B7.html" data-v-3a89ef20>
+              工程化概述与脚手架工具
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E6%89%8B%E5%86%99Promise%E6%BA%90%E7%A0%81.html" data-v-3a89ef20>
+              手写Promise源码
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E6%A8%A1%E5%9D%97%E5%8C%96%E5%BC%80%E5%8F%91.html" data-v-3a89ef20>
+              模块化开发
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%B7%A5%E5%85%B7.html" data-v-3a89ef20>
+              脚手架工具
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E6%A8%A1%E6%8B%9FVue.js%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86.html" data-v-3a89ef20>
+              模拟Vue.js响应式原理
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA.html" data-v-3a89ef20>
+              自动化构建
+            </a></div><div class="sideItem" data-v-3a89ef20><a href="/%E5%89%8D%E7%AB%AF/%E8%A7%84%E8%8C%83%E5%8C%96%E6%A0%87%E5%87%86.html" data-v-3a89ef20>
+              规范化标准
+            </a></div></div></div></div></div> <div class="footer-container" data-v-31e71e00 data-v-3a89ef20>
+powered with ❤ by Bingordinary
+</div></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5d177364.js" defer></script><script src="/assets/js/7.65eecb72.js" defer></script><script src="/assets/js/2.aee3cbc0.js" defer></script><script src="/assets/js/27.4c147396.js" defer></script>
+  </body>
+</html>
